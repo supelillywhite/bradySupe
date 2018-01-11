@@ -9,6 +9,7 @@ module CurrentUserConcern
     guest = GuestUser.new
     guest.name = "Guest User"
     guest.email = "guest@example.com"
+    guest.user_id = 0
     guest
   end
 end
