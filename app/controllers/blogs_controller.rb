@@ -6,7 +6,6 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   def index
     @blogs = Blog.search(params[:term])
-    @blogs1 = Blog.find(params[:id])
   end
 
   # GET /blogs/1
