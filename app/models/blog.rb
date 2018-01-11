@@ -1,9 +1,11 @@
 class Blog < ApplicationRecord
   def self.search(term)
     if term
-      where('subject LIKE ?', "%#{term}%").order('id DESC')
+      titles = Blog.where('title LIKE ?', "%#{term}%")
+      bodys = Blog.where('body LIKE ?', "%#{term}%")
+      titles + bodys
     else
-      order('id DESC') 
+      all
     end
   end
 end
