@@ -3,8 +3,7 @@ User.create(
   password: "123456",
   password_confirmation: "123456",
   name: "Admin User",
-  roles: "site_admin",
-  user_id: 1
+  roles: "site_admin"
   )
 
 puts "1 admin user created"
@@ -14,8 +13,7 @@ User.create(
   password: "123456",
   password_confirmation: "123456",
   name: "Regular User",
-  roles: "user",
-  user_id: 2
+  roles: "user"
   )
 
 puts "1 guest user created"
