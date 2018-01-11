@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  access all: [:show, :index], editor: {except: [:destroy, :edit, :update]}, site_admin: :all
+  access all: [:show, :index], editor: {except: [:destroy]}, site_admin: :all
 
   # GET /blogs
   # GET /blogs.json
@@ -20,6 +20,9 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1/edit
   def edit
+    unless current_user.id == @blog.user_id || current_user.role == :site_admin
+      redirect_to(@blog, notice: "You cannot edit this post") and return
+    end
   end
 
   # POST /blogs
