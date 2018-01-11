@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  access all: [:show, :index], editor: {except: [:destroy]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy]}, site_admin: :all
 
   # GET /blogs
   # GET /blogs.json
@@ -29,16 +29,9 @@ class BlogsController < ApplicationController
   # POST /blogs.json
   def create
     @blog = Blog.new(blog_params)
-
-    respond_to do |format|
-      if @blog.save
-        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
-        format.json { render :show, status: :created, location: @blog }
-      else
-        format.html { render :new }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
-      end
-    end
+    @blog.user_id = current_user.id
+    @blog.save
+    redirect_to @blog, notice: 'Blog was successfully created.'
   end
 
   # PATCH/PUT /blogs/1
