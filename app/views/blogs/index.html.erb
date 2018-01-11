@@ -23,11 +23,11 @@
       <tr>
         <td><%= blog.title %></td>
         <td><%= blog.body %></td>
-        <td><%= blog.image %></td>
+        <td><%= image_tag blog.image %></td>
         <td><%= blog.subject %></td>
         <td><%= link_to 'Show', blog %></td>
         <% if current_user == nil %>
-          <td>Ha you fools!</td>
+          <td></td>
         <% elsif current_user.id == blog.user_id || current_user.id == 1 %>
           <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
         <% end %> 
