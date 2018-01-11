@@ -22,16 +22,14 @@
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.text_area :image, id: :blog_image %>
-  </div>
-
-  <div class="field">
     <%= form.label :subject %>
     <%= form.text_field :subject, id: :blog_subject %>
   </div>
 
-  
+  <div class="field">
+    <%= form.label :image %><br>
+    <%= form.file_field :image, id: :blog_image %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

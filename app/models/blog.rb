@@ -1,5 +1,8 @@
 class Blog < ApplicationRecord
   belongs_to :user
+  validates_presence_of :title, :body, :subject
+  mount_uploader :image, ImageUploader
+
   def self.search(term)
     if term
       titles = Blog.where('LOWER(title) LIKE ?', "%#{term.downcase}%")

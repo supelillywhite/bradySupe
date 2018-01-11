@@ -50,3 +50,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '~> 4.4'
 gem 'petergate', '~> 1.8', '>= 1.8.1'
+gem 'stripe', '~> 3.9', '>= 3.9.1'
+gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
+gem 'carrierwave'
+gem 'carrierwave-aws'
+gem 'mini_magick', '~> 3.5.0'
