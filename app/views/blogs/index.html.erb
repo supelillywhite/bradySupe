@@ -26,7 +26,7 @@
         <td><%= blog.image %></td>
         <td><%= blog.subject %></td>
         <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) if current_user.id == @blog.user_id || current_user == :site_admin %></td>
+        <td><%= link_to 'Edit', edit_blog_path(blog) if logged_in?(:site_admin, :user) %></td>
         <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin, :user) %></td>
       </tr>
     <% end %>
