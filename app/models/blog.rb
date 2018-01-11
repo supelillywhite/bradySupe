@@ -3,7 +3,8 @@ class Blog < ApplicationRecord
     if term
       titles = Blog.where('title LIKE ?', "%#{term}%")
       bodys = Blog.where('body LIKE ?', "%#{term}%")
-      titles + bodys
+      subjects = Blog.where('subject LIKE ?', "%#{term}%")
+      titles + bodys + subjects
     else
       all
     end
