@@ -1,11 +1,12 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy]}, site_admin: :all
 
   # GET /blogs
   # GET /blogs.json
   def index
     @blogs = Blog.search(params[:term])
+    @blogs1 = Blog.find(params[:id])
   end
 
   # GET /blogs/1

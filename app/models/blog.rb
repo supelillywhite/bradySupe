@@ -1,4 +1,5 @@
 class Blog < ApplicationRecord
+  belongs_to :user
   def self.search(term)
     if term
       titles = Blog.where('title LIKE ?', "%#{term}%")

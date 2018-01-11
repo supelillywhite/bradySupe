@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
+<%= @blog.inspect %>
+<hr>
+<%= current_user.roles %>
 
-<p>
-  <strong>Title:</strong>
+<strong>Title:</strong>
   <%= @blog.title %>
 </p>
 
@@ -20,5 +22,5 @@
   <%= @blog.subject %>
 </p>
 
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Edit |', edit_blog_path(@blog) if current_user.id == @blog.user_id || current_user == :site_admin %>
 <%= link_to 'Back', blogs_path %>

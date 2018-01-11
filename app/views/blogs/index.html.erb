@@ -26,8 +26,8 @@
         <td><%= blog.image %></td>
         <td><%= blog.subject %></td>
         <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_blog_path(blog) if current_user.id == @blog.user_id || current_user == :site_admin %></td>
+        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin, :user) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -35,4 +35,4 @@
 
 <br>
 
-<%= link_to 'New Blog', new_blog_path %>
+<%= link_to 'New Blog', new_blog_path if logged_in?(:site_admin, :user)%>
