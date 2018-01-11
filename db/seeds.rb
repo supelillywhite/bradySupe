@@ -14,6 +14,7 @@ User.create(
   password: "123456",
   password_confirmation: "123456",
   name: "Regular User",
+  roles: "editor",
   user_id: 2
   )
 
