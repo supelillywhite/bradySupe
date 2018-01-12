@@ -8,13 +8,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <% if logged_in?(:user, :site_admin) %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Login", new_user_session_path %>
-      <%= link_to "Register", new_user_registration_path %>
-    <% end %>
+  <body class="container">
+    <div class="nav-bar">
+      <%= render "shared/nav" %>
+    </div>
     <%= yield %>
   </body>
 </html>
