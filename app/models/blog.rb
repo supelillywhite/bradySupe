@@ -3,6 +3,8 @@ class Blog < ApplicationRecord
 
   mount_uploader :image, BlogUploader
 
+  has_many :comments, dependent: :destroy
+
   def self.search(term)
     if term
       titles = Blog.where('LOWER(title) LIKE ?', "%#{term.downcase}%")
