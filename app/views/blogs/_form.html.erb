@@ -23,15 +23,13 @@
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.text_area :image, id: :blog_image %>
+    <%= form.file_field :image %>
   </div>
 
   <div class="field">
     <%= form.label :subject %>
     <%= form.text_field :subject, id: :blog_subject %>
   </div>
-
-  
 
   <div class="actions">
     <%= form.submit %>
